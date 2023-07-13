@@ -24,3 +24,22 @@ section.appendChild(divParagraph);
 container.appendChild(paragraph);
 container.appendChild(heading);
 container.appendChild(section);
+
+function alertFunction() {
+    alert("Hello World");
+}
+
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', alertFunction);
+
+btn.addEventListener('click', function (e){
+    e.target.style.background = 'blue';
+});
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        alert(button.id);
+    })
+})
