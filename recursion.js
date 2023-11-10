@@ -39,4 +39,55 @@ function fibsRecursive(n) {
     }
 }
 
-console.log(fibsRecursive(5))
+
+let testArray = [1,7,6,6,2,8,4]
+
+//let testArray = [7, 1, 6, 3]
+
+
+function mergeSort(a) {
+
+    if (a.length < 2) {
+        return a
+    }
+
+    else {
+
+        //console.log(a)
+        let leftSide = mergeSort(a.slice(0, Math.floor((a.length) / 2)))
+        let rightSide = mergeSort(a.slice(Math.floor((a.length) / 2)))
+
+        console.log(leftSide)
+        console.log(rightSide)
+
+        return merge(leftSide, rightSide)
+
+        function merge(left, right) {
+
+            let sorted = []
+
+            while (left.length && right.length) {
+
+                if (left[0] > right[0]) {
+                    sorted.push(right.shift())
+                } else if (left[0] < right[0]) {
+                    sorted.push(left.shift())
+                } else {
+                    sorted.push(right.shift())
+                    sorted.push(left.shift())
+                }
+            }
+
+            console.log('Sorted: ' + sorted.concat(left.slice().concat(right.slice())))
+
+            return sorted.concat(left.slice().concat(right.slice()))
+        }
+    }
+
+}
+
+//array1 = []
+
+//console.log(array1[0])
+
+console.log(mergeSort(testArray))
